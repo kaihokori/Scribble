@@ -20,8 +20,8 @@ struct CreateSettings2DView: View {
                 Spacer()
                 Toggle("", isOn: $showGrid)
                     .labelsHidden()
-                    .onChange(of: showGrid) { newValue in
-                        UserDefaults.standard.set(newValue, forKey: "showGrid2D")
+                    .onChange(of: showGrid) {
+                        UserDefaults.standard.set(showGrid, forKey: "showGrid2D")
                     }
             }
             HStack {
@@ -31,8 +31,8 @@ struct CreateSettings2DView: View {
                 Slider(value: $gridSpacing, in: 20...140, step: 1)
                     .disabled(!showGrid)
                     .frame(width: 150)
-                    .onChange(of: gridSpacing) { newValue in
-                        UserDefaults.standard.set(Double(newValue), forKey: "gridSpacing2D")
+                    .onChange(of: gridSpacing) {
+                        UserDefaults.standard.set(Double(gridSpacing), forKey: "gridSpacing2D")
                     }
             }
             HStack {
@@ -41,8 +41,8 @@ struct CreateSettings2DView: View {
                 Spacer()
                 Slider(value: $strokeResolution, in: 5...100, step: 1)
                     .frame(width: 150)
-                    .onChange(of: strokeResolution) { newValue in
-                        UserDefaults.standard.set(newValue, forKey: "strokeResolution2D")
+                    .onChange(of: strokeResolution) {
+                        UserDefaults.standard.set(strokeResolution, forKey: "strokeResolution2D")
                     }
             }
         }

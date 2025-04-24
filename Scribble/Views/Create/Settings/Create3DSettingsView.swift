@@ -20,8 +20,8 @@ struct CreateSettings3DView: View {
                 Spacer()
                 Toggle("", isOn: $isSnapping)
                     .labelsHidden()
-                    .onChange(of: isSnapping) { newValue in
-                        UserDefaults.standard.set(newValue, forKey: "isSnapping3D")
+                    .onChange(of: isSnapping) {
+                        UserDefaults.standard.set(isSnapping, forKey: "isSnapping3D")
                     }
             }
             
@@ -32,8 +32,8 @@ struct CreateSettings3DView: View {
                 Slider(value: $snapDistance, in: 0.01...0.05, step: 0.004)
                     .frame(width: 150)
                     .disabled(!isSnapping)
-                    .onChange(of: snapDistance) { newValue in
-                        UserDefaults.standard.set(Double(newValue), forKey: "snapDistance3D")
+                    .onChange(of: snapDistance) {
+                        UserDefaults.standard.set(Double(snapDistance), forKey: "snapDistance3D")
                     }
             }
             
@@ -43,8 +43,8 @@ struct CreateSettings3DView: View {
                 Spacer()
                 Slider(value: $drawingDistance, in: 0.05...0.5, step: 0.045)
                     .frame(width: 150)
-                    .onChange(of: drawingDistance) { newValue in
-                        UserDefaults.standard.set(Double(newValue), forKey: "drawingDistance3D")
+                    .onChange(of: drawingDistance) {
+                        UserDefaults.standard.set(Double(drawingDistance), forKey: "drawingDistance3D")
                     }
             }
         }
